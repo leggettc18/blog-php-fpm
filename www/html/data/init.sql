@@ -2,16 +2,41 @@
  * Database creation script
  */
 
+
+DROP TABLE IF EXISTS user;
+
+CREATE TABLE user (
+    id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(30) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at DATETIME NOT NULL,
+    is_enabled BOOLEAN NOT NULL DEFAULT true
+);
+
+/* This will become user = 1. I'm creating this just to satisfy constraints here.
+   This password will be properly hashed in the installer */
+
+INSERT INTO
+    user
+    (
+        username, password, created_at, is_enabled
+    )
+    VALUES
+    (
+        "admin", "unhashed-password", CURDATE() - INTERVAL 3 MONTH, 0
+    )
+;
+
 DROP TABLE IF EXISTS post;
 
 CREATE TABLE post (
-    id INTEGER NOT NULL AUTO_INCREMENT,
+    id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(30) NOT NULL,
     body VARCHAR(10000) NOT NULL,
     user_id INTEGER NOT NULL,
     created_at DATETIME NOT NULL,
     updated_at DATETIME,
-    CONSTRAINT post_pk PRIMARY KEY (id)
+    FOREIGN KEY (user_id) REFERENCES user(id)
 );
 
 INSERT INTO
@@ -60,13 +85,13 @@ This is split into paragraphs.",
 DROP TABLE IF EXISTS comment;
 
 CREATE TABLE comment (
-    id INTEGER NOT NULL AUTO_INCREMENT,
+    id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     post_id INTEGER NOT NULL,
     created_at DATETIME NOT NULL,
     name VARCHAR(30) NOT NULL,
     website VARCHAR(100) NOT NULL,
     text VARCHAR(10000) NOT NULL,
-    CONSTRAINT comment_pk PRIMARY KEY (id)
+    FOREIGN KEY (post_id) REFERENCES post(id)
 );
 
 INSERT INTO
@@ -96,13 +121,3 @@ INSERT INTO
         "This is a comment from Jonny"
     )
 ;
-
-DROP TABLE IF EXISTS user;
-
-CREATE TABLE user (
-    id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(30) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    created_at DATETIME NOT NULL,
-    is_enabled BOOLEAN NOT NULL DEFAULT true
-);

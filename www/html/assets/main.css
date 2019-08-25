@@ -1,0 +1,102 @@
+/* Success/error message boxes */
+.box {
+	border: 1px dotted silver;
+	border-radius: 5px;
+	padding: 4px;
+}
+.error {
+	background-color: #ff6666;
+}
+.success {
+	background-color: #88ff88;
+}
+
+.box ul {
+	margin: 4px;
+	padding-left: 14px;
+}
+
+.box ul li {
+	margin-bottom: 2px;
+}
+
+.install-password {
+	font-size: 1.2em;
+}
+
+.top-menu {
+	border: 1px dotted silver;
+	min-height: 18px;
+	padding: 4px;
+	margin-bottom: 4px;
+}
+
+.menu-options {
+	float: right;
+}
+
+h1, h2, h3 {
+	margin-top: 0;
+	margin-bottom: 8px;
+}
+
+body {
+	font-family: sans-serif;
+}
+
+.post-synopsis {
+	padding-bottom: 8px;
+	border-bottom: 1px dotted silver;
+	margin-bottom: 20px;
+}
+
+.post-synopsis h2, .post h2 {
+	color:darkblue;
+}
+
+.post .date, .post-synopsis .meta {
+	color: white;
+	background-color: grey;
+	border-radius: 7px;
+	padding: 2px;
+	display: inline;
+	font-size: 0.95em;
+}
+
+.comment .comment-meta {
+	font-size: 0.85em;
+	color: grey;
+	border-top: 1px dotted silver;
+	padding-top: 8px;
+}
+
+.comment-body p {
+	margin: 8px 4px;
+}
+
+.comment-list {
+	border-bottom: 1px dotted silver;
+	margin-bottom: 12px;
+}
+
+.comment-margin {
+	margin-bottom: 8px;
+}
+
+.comment-form input,
+.comment-form textarea {
+	margin: 4px;
+}
+
+.comment-form label {
+	font-size: 0.95em;
+	margin: 6px;
+	width: 7em;
+	color: grey;
+	float: left;
+	text-align: right;
+
+	/* Some browsers make labels too tall, and as a result they incorrectly
+	stack horizontally. Let's reset each to the left-hand side to be sure. */
+	clear: left;
+}

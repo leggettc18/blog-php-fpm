@@ -25,31 +25,35 @@ $notFound = isset($_GET['not-found']);
 <html>
     <head>
         <title>A blog application</title>
-        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <?php require 'templates/head.php' ?>
     </head>
     <body>
         <?php require 'templates/title.php' ?>
         <?php if ($notFound): ?>
-            <div style="border: 1px solid #ff6666; padding: 6px;">
+            <div class="error box">
                 Error: cannot find the requested blog post
             </div>
         <?php endif ?>
-        <?php while ($row = $stmt->fetch()): ?>
-            <h2>
-                <?php echo htmlEscape($row['title']) ?>
-            </h2>
-            <div>
-                <?php echo convertSqlDate($row['created_at']) ?>
+        <div class="post-list">
+            <?php while ($row = $stmt->fetch()): ?>
+                <div class="post-synopsis">
+                    <h2>
+                        <?php echo htmlEscape($row['title']) ?>
+                    </h2>
+                    <div class="meta">
+                        <?php echo convertSqlDate($row['created_at']) ?>
 
-                (<?php echo countCommentsForPost($row['id']) ?> comments)
-            </div>
-            <p>
-                <?php echo htmlEscape($row['body']) ?>
-            </p>
-            <p>
-                <a href="view-post.php?post_id=<?php echo $row ['id'] ?>"
-                >Read more...</a>
-            </p>
-        <?php endwhile ?>
+                        (<?php echo countCommentsForPost($pdo, $row['id']) ?> comments)
+                    </div>
+                    <p>
+                        <?php echo htmlEscape($row['body']) ?>
+                    </p>
+                    <div class="read-more">
+                        <a href="view-post.php?post_id=<?php echo $row ['id'] ?>"
+                        >Read more...</a>
+                    </div>
+                </div>
+            <?php endwhile ?>
+        </div>
     </body>
 </html>
