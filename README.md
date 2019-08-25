@@ -15,10 +15,10 @@ should stress that the tutorial seems to be pretty well compliant with best prac
 a few small things here and there I swapped out is all.
 
 If you wish to run this yourself for whatever reason:
-1. Clone the repository: `git clone https://github.com/leggettc18/blog-php-fpm`
-2. Enter the directory: `cd blog-php-fpm`
-3. Run the initialization script `bin/init`
-4. Go to `http://localhost:8080/install.php` in your browser
+1. Clone the repository: `git clone https://github.com/leggettc18/blog-php-fpm`.
+2. Enter the directory: `cd blog-php-fpm`.
+3. Run the initialization script `bin/init`.
+4. Go to `http://localhost:8080/install.php` in your browser and click the Install button.
 5. Click the link to go back to the Home Page.
 
 Obviously not a whole lot of functionality here, this is something I'm going through for learning purposes.
