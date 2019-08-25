@@ -2,7 +2,8 @@
  * Database creation script
  */
 
-
+DROP TABLE IF EXISTS comment;
+DROP TABLE IF EXISTS post;
 DROP TABLE IF EXISTS user;
 
 CREATE TABLE user (
