@@ -70,6 +70,10 @@ body {
 	padding-top: 8px;
 }
 
+.comment .comment-meta input {
+	float: right;
+}
+
 .comment-body p {
 	margin: 8px 4px;
 }
@@ -77,6 +81,7 @@ body {
 .comment-list {
 	border-bottom: 1px dotted silver;
 	margin-bottom: 12px;
+	max-width: 900px;
 }
 
 .comment-margin {
