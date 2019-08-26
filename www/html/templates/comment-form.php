@@ -19,7 +19,7 @@
 <h3>Add your comment</h3>
 
 <form 
-    action="viewpost.php?action=add-comment&amp;post_id=<?php echo $postId?>"
+    action="view-post.php?action=add-comment&amp;post_id=<?php echo $postId?>"
     method="post"
     class="comment-form user-form">
     <div>
