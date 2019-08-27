@@ -57,6 +57,6 @@
     </div>
 
     <div>
-        <input type="submit" value="Submit comment" />
+        <input type="submit" value="Submit comment" class="button-primary"/>
     </div>
 </form>

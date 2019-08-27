@@ -1,6 +1,6 @@
 /* Success/error message boxes */
 .box {
-	border: 1px dotted silver;
+	border: 1px dotted #7B8571;
 	border-radius: 5px;
 	padding: 4px;
 }
@@ -25,7 +25,8 @@
 }
 
 .top-menu {
-	border: 1px dotted silver;
+	color: #1D1E26;
+	border: 1px dotted #7B8571;
 	min-height: 18px;
 	padding: 4px;
 	margin-bottom: 4px;
@@ -42,31 +43,45 @@ h1, h2, h3 {
 
 body {
 	font-family: sans-serif;
+	background-color: #F5F0F3;
+	color: #1D1E26;
 }
 
 .post-synopsis {
 	padding-bottom: 8px;
-	border-bottom: 1px dotted silver;
+	border-bottom: 1px dotted #7B8571;
 	margin-bottom: 20px;
 }
 
 .post-synopsis h2, .post h2 {
-	color:darkblue;
+	color: #1D1E26;
 }
 
 .post .date, .post-synopsis .meta {
-	color: white;
-	background-color: grey;
+	color: #F5F0F3;
+	background-color: #62B3C0;
 	border-radius: 7px;
 	padding: 2px;
 	display: inline;
-	font-size: 0.95em;
+	font-size: 0.75em;
+}
+
+.button-primary {
+	color: #F5F0F3;
+	background-color: #62B3C0;
+	border: none;
+	padding: 0.5em;
+	border-radius: 1em;
+}
+
+a {
+	color: #2F726D
 }
 
 .comment .comment-meta {
 	font-size: 0.85em;
-	color: grey;
-	border-top: 1px dotted silver;
+	color: #7B8571;
+	border-top: 1px dotted #7B8571;
 	padding-top: 8px;
 }
 
@@ -79,7 +94,7 @@ body {
 }
 
 .comment-list {
-	border-bottom: 1px dotted silver;
+	border-bottom: 1px dotted #7B8571;
 	margin-bottom: 12px;
 	max-width: 900px;
 }
@@ -97,7 +112,7 @@ body {
 	font-size: 0.95em;
 	margin: 6px;
 	width: 7em;
-	color: grey;
+	color: #7B8571;
 	float: left;
 	text-align: right;
 
