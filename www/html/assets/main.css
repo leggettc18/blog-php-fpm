@@ -30,6 +30,7 @@
 	min-height: 18px;
 	padding: 4px;
 	margin-bottom: 4px;
+	grid-area: header;
 }
 
 .menu-options {
@@ -41,10 +42,49 @@ h1, h2, h3 {
 	margin-bottom: 8px;
 }
 
+#title {
+	grid-area: title;
+	text-align: center;
+}
+
+#summary {
+	grid-area: summary;
+	text-align: justify;
+	vertical-align: text-top;
+}
+
 body {
 	font-family: sans-serif;
 	background-color: #F5F0F3;
 	color: #1D1E26;
+}
+
+#main-grid {
+	display: grid;
+	grid-template-areas:
+		"header		header		header"
+		"title 		post		post"
+		"summary 	post 		post"
+		".			post		post";
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-auto-rows: auto;
+	grid-gap: 20px;
+	gap: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+	#main-grid {
+		display: grid;
+		grid-template-areas:
+			"header		header		header"
+			"title 		title		title"
+			"summary 	summary 	summary"
+			"post		post		post";
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-auto-rows: auto;
+		grid-gap: 20px;
+		gap: 20px;
+	}
 }
 
 .post-synopsis {
@@ -119,6 +159,10 @@ a {
 	/* Some browsers make labels too tall, and as a result they incorrectly
 	stack horizontally. Let's reset each to the left-hand side to be sure. */
 	clear: left;
+}
+
+.post-list {
+	grid-area: post;
 }
 
 #post-list {

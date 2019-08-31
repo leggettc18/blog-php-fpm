@@ -16,7 +16,7 @@ $notFound = isset($_GET['not-found']);
         <title>A blog application</title>
         <?php require 'templates/head.php' ?>
     </head>
-    <body>
+    <body id="main-grid">
         <?php require 'templates/title.php' ?>
         <?php if ($notFound): ?>
             <div class="error box">
