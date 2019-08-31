@@ -24,11 +24,15 @@
 	font-size: 1.2em;
 }
 
+a {
+	color: #2F726D;
+}
+
 .top-menu {
+	background: #2f726d;
 	color: #1D1E26;
-	border: 1px dotted #7B8571;
 	min-height: 18px;
-	padding: 4px;
+	padding: 16px;
 	margin-bottom: 4px;
 	grid-area: header;
 }
@@ -47,10 +51,14 @@ h1, h2, h3 {
 	text-align: center;
 }
 
+#title a {
+	text-decoration: none;
+	color: #1d1e26;
+}
+
 #summary {
 	grid-area: summary;
 	text-align: justify;
-	vertical-align: text-top;
 }
 
 body {
@@ -112,10 +120,16 @@ body {
 	border: none;
 	padding: 0.5em;
 	border-radius: 1em;
+	text-decoration: none;
 }
 
-a {
-	color: #2F726D
+.button-secondary {
+	color: #f5f0f3;
+	background-color: #1d1e26;
+	border: none;
+	padding: 0.5em;
+	border-radius: 1em;
+	text-decoration: none;
 }
 
 .comment .comment-meta {
@@ -152,7 +166,7 @@ a {
 	font-size: 0.95em;
 	margin: 6px;
 	width: 7em;
-	color: #7B8571;
+	color: #1d1e26;
 	float: left;
 	text-align: right;
 
