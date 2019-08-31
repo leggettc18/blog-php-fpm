@@ -79,7 +79,7 @@ if ($_POST)
                     name="password" 
                 />
             </div>
-            <input type="submit" name="submit" value="Login" />
+            <input class="button-primary" type="submit" name="submit" value="Login" />
         </form>
     </body>
 </html>

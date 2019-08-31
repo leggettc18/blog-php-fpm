@@ -83,6 +83,7 @@ if (isset($_SESSION['try-install']))
             <p>Click the install button to reset the database.</p>
             <form method="post">
                 <input
+                    class="button-primary"
                     name="install"
                     type="submit"
                     value="Install"

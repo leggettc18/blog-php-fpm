@@ -30,7 +30,7 @@ a {
 
 .top-menu {
 	background: #2f726d;
-	color: #1D1E26;
+	color: #f5f0f3;
 	min-height: 18px;
 	padding: 16px;
 	margin-bottom: 4px;
@@ -54,6 +54,10 @@ h1, h2, h3 {
 #title a {
 	text-decoration: none;
 	color: #1d1e26;
+}
+
+#title a:hover{
+	text-decoration: underline;
 }
 
 #summary {
@@ -121,6 +125,11 @@ body {
 	padding: 0.5em;
 	border-radius: 1em;
 	text-decoration: none;
+	font-size: 1em;
+}
+
+.button-primary:hover {
+	background-color: #559aa5;
 }
 
 .button-secondary {
@@ -190,5 +199,5 @@ body {
 }
 
 #post-list tbody tr:nth-child(odd) {
-	background-color: #f4f4f4;
+	background-color: #eceaec;
 }

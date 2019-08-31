@@ -121,6 +121,7 @@ if ($_POST)
             </div>
             <div>
                 <input
+                    class="button-primary"
                     type="submit"
                     value="Save post"
                 />

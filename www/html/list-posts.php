@@ -68,10 +68,11 @@ $posts=getAllPosts($pdo);
                                 <?php echo $post['comment_count'] ?>
                             </td>
                             <td>
-                                <a href="edit-post.php?post_id=<?php echo $post['id']?>">Edit</a>
+                                <a class="button-primary href="edit-post.php?post_id=<?php echo $post['id']?>">Edit</a>
                             </td>
                             <td>
                                 <input
+                                    class="button-primary"
                                     type="submit"
                                     name="delete-post[<?php echo $post['id']?>]"
                                     value="Delete"
