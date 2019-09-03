@@ -1,15 +1,27 @@
-<div class="top-menu">
-    <div class="menu-options">
+<nav class="top-menu">
+	<span class="navbar-toggle" id="js-navbar-toggle">
+		<i class="fas fa-bars"></i>
+	</span>
+	<a class="logo" href="index.php">logo</a>
+    <ul class="menu-options" id="js-menu">
         <?php if (isLoggedIn()): ?>
-            <a class="button-primary" href="index.php">Home</a>
-            <a class="button-primary" href="list-posts.php">All posts</a>
-            |
-            <a class="button-primary" href="edit-post.php">New post</a>
-            |
+        	<li>
+            	<a class="button-primary nav-links" href="index.php">Home</a>
+            </li>
+            <li>
+            	<a class="button-primary nav-links" href="list-posts.php">All posts</a>
+            </li>
+            <li>
+            	<a class="button-primary nav-links" href="edit-post.php">New post</a>
+            </li>
             Hello <?php echo htmlEscape(getAuthUser()) ?>
-            <a class="button-primary" href="logout.php">Log out</a>
+            <li>
+            	<a class="button-primary nav-links" href="logout.php">Log out</a>
+            </li>
         <?php else: ?>
-            <a class="button-primary" href="login.php">Log in</a>
+        	<li>
+            	<a class="button-primary nav-links" href="login.php">Log in</a>
+            </li>
         <?php endif ?>
-    </div>
-</div>
+    </ul>
+</nav>

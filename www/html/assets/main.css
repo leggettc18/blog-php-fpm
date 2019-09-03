@@ -38,7 +38,62 @@ a {
 }
 
 .menu-options {
-	float: right;
+	list-style-type: none;
+	display: none;
+}
+
+.active {
+	display: block;
+}
+
+.menu-options li {
+	text-align: center;
+}
+
+.logo {
+	display: inline-block;
+}
+
+.navbar-toggle {
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	cursor: pointer;
+	color: #f5f0f3;
+	font-size: 24px;
+}
+
+.nav-links {
+	text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+	.top-menu {
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: 0;
+		height: 70px;
+		align-items: center;
+	}
+	
+	.menu-options {
+		display: flex;
+		margin-right: 30px;
+		flex-direction: row;
+		justify-content: flex-end;
+	}
+	
+	.menu-options li {
+		margin: 0;
+	}
+	
+	.nav-links {
+		margin-left: 40px;
+	}
+	
+	.navbar-toggle {
+		display: none;
+	}
 }
 
 h1, h2, h3 {
