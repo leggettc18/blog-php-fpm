@@ -1,12 +1,22 @@
 #! /bin/bash
 
+# Make necessary directories
 mkdir -p data/mysql
 mkdir -p log/mysql
 
+# Pull the latest version of my container images
 podman pull quay.io/leggettc18/mariadb
 podman pull quay.io/leggettc18/php-fpm
 podman pull quay.io/leggettc18/nginx
 
+# Stop and remove any of these containers and pods
+# that were previously running
+podman stop blog-php blog-nginx blog-mariadb
+podman rm blog-php blog-nginx blog-mariadb
+podman pod stop blog-php-fpm
+podman pod rm blog-php-fpm
+
+# Create a pod and start up the containers.
 podman pod create -p 8080:80 -n blog-php-fpm
 
 podman run -d \
