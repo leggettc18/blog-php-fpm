@@ -24,6 +24,10 @@
 	font-size: 1.2em;
 }
 
+nav ul {
+	padding: 0;
+}
+
 a {
 	color: #2F726D;
 }
@@ -48,6 +52,11 @@ a {
 
 .menu-options li {
 	text-align: center;
+	padding: 5px;
+	border: 1px;
+	border-style: solid;
+	border-color: #2f726d;
+	background: #255A56;
 }
 
 .logo {
@@ -60,19 +69,24 @@ a {
 	right: 20px;
 	cursor: pointer;
 	color: #f5f0f3;
-	font-size: 24px;
+	font-size: 40px;
 }
 
 .nav-links {
+	color: #f5f0f3;
 	text-decoration: none;
+}
+
+.nav-links:hover {
+	text-decoration: underline;
 }
 
 @media screen and (min-width: 768px) {
 	.top-menu {
 		display: flex;
 		justify-content: space-between;
-		padding-bottom: 0;
-		height: 70px;
+		padding-bottom: 0px;
+		height: 30px;
 		align-items: center;
 	}
 	
@@ -85,10 +99,12 @@ a {
 	
 	.menu-options li {
 		margin: 0;
+		border-style: none;
+		background: #2f726d;
 	}
 	
 	.nav-links {
-		margin-left: 40px;
+		margin-left: 20px;
 	}
 	
 	.navbar-toggle {
@@ -118,6 +134,8 @@ h1, h2, h3 {
 #summary {
 	grid-area: summary;
 	text-align: justify;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 body {
@@ -241,6 +259,7 @@ body {
 
 .post-list {
 	grid-area: post;
+	margin-left: 20px;
 }
 
 #post-list {
