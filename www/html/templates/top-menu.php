@@ -1,4 +1,4 @@
-<nav class="top-menu">
+<nav id="js-top-menu" class="top-menu">
 	<span class="navbar-toggle" id="js-navbar-toggle">
 		<i class="fas fa-bars"></i>
 	</span>

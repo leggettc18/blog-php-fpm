@@ -35,19 +35,28 @@ a {
 .top-menu {
 	background: #2f726d;
 	color: #f5f0f3;
-	min-height: 18px;
+	height: 40px;
 	padding: 16px;
 	margin-bottom: 4px;
 	grid-area: header;
+	transition: 0.5s ease-out;
+}
+
+.active-top {
+	height: 200px;
+	transition: 0.1s ease-in;
 }
 
 .menu-options {
 	list-style-type: none;
-	display: none;
+	height: 0;
+	opacity: 0;
+	transition: opacity 0.1s ease-out;
 }
 
 .active {
-	display: block;
+	opacity: 1;
+	transition: opacity 0.5s ease-in;
 }
 
 .menu-options li {
@@ -142,6 +151,12 @@ body {
 	font-family: sans-serif;
 	background-color: #F5F0F3;
 	color: #1D1E26;
+	animation: fadein 1.5s;
+}
+
+@keyframes fadein {
+	from { opacity: 0; }
+	to { opacity: 1; }
 }
 
 #main-grid {
