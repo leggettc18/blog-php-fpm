@@ -35,28 +35,30 @@ a {
 .top-menu {
 	background: #2f726d;
 	color: #f5f0f3;
-	height: 40px;
-	padding: 16px;
+	height: 15px;
+	padding: 10px;
 	margin-bottom: 4px;
 	grid-area: header;
 	transition: 0.5s ease-out;
+	transition-delay: 0.3s;
 }
 
 .active-top {
 	height: 200px;
-	transition: 0.1s ease-in;
+	transition: 0.5s ease-out;
 }
 
 .menu-options {
 	list-style-type: none;
 	height: 0;
 	opacity: 0;
-	transition: opacity 0.1s ease-out;
+	transition: opacity 0.3s ease-out;
 }
 
 .active {
 	opacity: 1;
-	transition: opacity 0.5s ease-in;
+	transition: opacity 0.3s ease-in;
+	transition-delay: 0.3s
 }
 
 .menu-options li {
@@ -78,7 +80,7 @@ a {
 	right: 20px;
 	cursor: pointer;
 	color: #f5f0f3;
-	font-size: 40px;
+	font-size: 25px;
 }
 
 .nav-links {
@@ -94,8 +96,8 @@ a {
 	.top-menu {
 		display: flex;
 		justify-content: space-between;
-		padding-bottom: 0px;
-		height: 30px;
+		padding-bottom: 10px;
+		height: 15px;
 		align-items: center;
 	}
 	
@@ -104,6 +106,8 @@ a {
 		margin-right: 30px;
 		flex-direction: row;
 		justify-content: flex-end;
+		height: 1.5em;
+		opacity: 1;
 	}
 	
 	.menu-options li {
