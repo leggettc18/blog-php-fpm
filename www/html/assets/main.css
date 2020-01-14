@@ -35,8 +35,8 @@ a {
 .top-menu {
 	background: #2f726d;
 	color: #f5f0f3;
-	height: 40px;
-	padding: 16px;
+	height: 15px;
+	padding: 10px;
 	margin-bottom: 4px;
 	grid-area: header;
 	transition: 0.5s ease-out;
@@ -80,7 +80,7 @@ a {
 	right: 20px;
 	cursor: pointer;
 	color: #f5f0f3;
-	font-size: 40px;
+	font-size: 25px;
 }
 
 .nav-links {
@@ -96,8 +96,8 @@ a {
 	.top-menu {
 		display: flex;
 		justify-content: space-between;
-		padding-bottom: 0px;
-		height: 30px;
+		padding-bottom: 10px;
+		height: 15px;
 		align-items: center;
 	}
 	
@@ -106,6 +106,8 @@ a {
 		margin-right: 30px;
 		flex-direction: row;
 		justify-content: flex-end;
+		height: 1.5em;
+		opacity: 1;
 	}
 	
 	.menu-options li {
