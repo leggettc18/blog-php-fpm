@@ -4,8 +4,16 @@ require_once 'lib/common.php';
 session_start();
 
 // Connect to the database, run a query, handle errors
-$pdo = getPDO();
-$posts = getAllPosts($pdo);
+
+$host = '127.0.0.1';
+$db = 'blog';
+$charset = 'utf8mb4';
+$user = 'blog';
+$pass = 'blog';
+
+Post::createConnection($host, $user, $pass, $db, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'', 3306, $charset));
+
+$posts = Post::all();
 
 $notFound = isset($_GET['not-found']);
 ?>
@@ -27,23 +35,23 @@ $notFound = isset($_GET['not-found']);
             <?php foreach ($posts as $post): ?>
                 <div class="post-synopsis">
                     <h2>
-                        <?php echo htmlEscape($post['title']) ?>
+                        <?php echo htmlEscape($post->title) ?>
                     </h2>
                     <div class="meta">
-                        <?php echo convertSqlDate($post['created_at']) ?>
+                        <?php echo convertSqlDate($post->created_at) ?>
 
-                        (<?php echo $post['comment_count'] ?> comments)
+                        (<?php echo Comment::getCommentCount($post->id) ?> comments)
                     </div>
                     <p>
-                        <?php echo htmlEscape($post['body']) ?>
+                        <?php echo htmlEscape($post->body) ?>
                     </p>
                     <div class="post-controls">
-                        <a href="view-post.php?post_id=<?php echo $post ['id'] ?>"
+                        <a href="view-post.php?post_id=<?php echo $post->id ?>"
                         >Read more...</a>
                         <?php if (isLoggedIn()): ?>
                             |
                             <a
-                                href="edit-post.php?post_id=<?php echo $post['id'] ?>"
+                                href="edit-post.php?post_id=<?php echo $post->id ?>"
                             >Edit</a>
                         <?php endif ?>
                     </div>

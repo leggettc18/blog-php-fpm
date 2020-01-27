@@ -1,23 +1,22 @@
 <?php
 
-require_once 'interfaces/adapter.php'
-class Database {
-	protected adapter;
+require_once 'interfaces/adapter.php';
+require_once 'config/db.php';
 
-	public function __construct(AdapterInterface adapter) {
-		$this->adapter = adapter;
+class Database {
+
+	protected $adapter;
+
+	public function __construct(AdapterInterface $adapter) {
+		$this->adapter = $adapter;
 	}
 
-	function select($attributes, $table, $conditions) {
-		$sql = "
-			SELECT :attributes
-			FROM :table
-			WHERE :conditions
-		"
-		$options = array( 'attributes' => implode(',', $attributes),
-							'table' => $table,
-							'conditions' => implode(' AND ', $conditions) );
-		return $this->adapter.runQuery($sql, $options);
+	public function select($attributes, $table, $where, $orderby) {
+		return $this->adapter->select($attributes, $table, $where, $orderby);
+	}
+
+	public function count($attributes, $table, $where) {
+		return $this->adapter->count($attributes, $table, $where);
 	}
 }
 

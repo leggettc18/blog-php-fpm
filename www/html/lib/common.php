@@ -1,5 +1,9 @@
 <?php
+include 'models/mysqladapter.php';
+include 'models/post.php';
+include 'models/comment.php';
 
+# $postModel = new Post($adapter);
 /**
  * Gets the root path of the project
  * 
@@ -25,6 +29,7 @@ function getDSN()
     
     return $dsn;
 }
+
 
 /**
  * Gets the PDO object for database access
@@ -87,7 +92,7 @@ function getSqlDateForNow()
  * 
  * @param PDO $pdo
  * @return array
- */
+ *
 function getAllPosts(PDO $pdo)
 {
     $stmt = $pdo->query(
@@ -106,6 +111,7 @@ function getAllPosts(PDO $pdo)
 
     return $stmt->fetchAll();
 }
+*/
 
 /**
  * Converts unsafe text to safe, paragraphed, HTML

@@ -1,8 +1,13 @@
 <?php
 
-require_once 'database.php'
+require_once 'datamodel.php';
 
-class Post extends Database {
+use leggettc18\SimpleORM\DataModel;
+
+class Post extends leggettc18\SimpleORM\DataModel {
+
+	protected static $createdAtColumn = 'created_at';
+	protected static $updatedAtColumn = 'updated_at';
 
 }
 
