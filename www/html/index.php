@@ -4,18 +4,6 @@ session_start();
 
 require_once 'lib/common.php';
 
-// Connect to the database, run a query, handle errors
-
-$host = '127.0.0.1';
-$db = 'blog';
-$charset = 'utf8mb4';
-$user = 'blog';
-$pass = 'blog';
-
-Post::createConnection($host, $user, $pass, $db, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'', 3306, $charset));
-
-$posts = Post::allByDateDescending();
-
 $notFound = isset($_GET['not-found']);
 ?>
 

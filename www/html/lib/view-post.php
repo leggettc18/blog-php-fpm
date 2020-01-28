@@ -7,10 +7,9 @@
  * @param integer $postId
  * @param array $commentData
  */
-function handleAddComment(PDO $pdo, $postId, array $commentData)
+function handleAddComment($postId, array $commentData)
 {
     $errors = addCommentToPost(
-        $pdo,
         $postId,
         $commentData
     );
@@ -133,7 +132,7 @@ function getPostRow(PDO $pdo, $postId)
  * @param array $commentData
  * @return array
  */
-function addCommentToPost(PDO $pdo, $postId, array $commentData)
+function addCommentToPost($postId, array $commentData)
 {
     $errors = array();
 
@@ -150,33 +149,39 @@ function addCommentToPost(PDO $pdo, $postId, array $commentData)
     //If we are error free, try writing the comment
     if (!$errors)
     {
-        $sql = "
-            INSERT INTO
-                comment
-            (name, website, text, created_at, post_id)
-            VALUES(:name, :website, :text, :created_at, :post_id)
-        ";
-        $stmt = $pdo->prepare($sql);
-        if ($stmt === false)
-        {
-            throw new Exception('Cannot prepare statement to insert comment');
-        }
-        $result = $stmt -> execute(
-            array_merge(
-                $commentData, 
-                array('post_id' => $postId, 'created_at' => getSqlDateForNow(), )
-            )
-        );
+        $comment = new Comment();
+        $comment->name = $commentData['name'];
+        $comment->website = $commentData['website'];
+        $comment->text = $commentData['text'];
+        $comment->post_id = $postId;
+        $comment->save();
+        // $sql = "
+        //     INSERT INTO
+        //         comment
+        //     (name, website, text, created_at, post_id)
+        //     VALUES(:name, :website, :text, :created_at, :post_id)
+        // ";
+        // $stmt = $pdo->prepare($sql);
+        // if ($stmt === false)
+        // {
+        //     throw new Exception('Cannot prepare statement to insert comment');
+        // }
+        // $result = $stmt -> execute(
+        //     array_merge(
+        //         $commentData, 
+        //         array('post_id' => $postId, 'created_at' => getSqlDateForNow(), )
+        //     )
+        // );
 
-        if ($result === false)
-        {
-            // @todo This renders a database-level message to the user, fix this
-            $errorInfo = $stmt->errorInfo();
-            if ($errorInfo)
-            {
-                $errors[] = $errorInfo[2];
-            }
-        }
+        // if ($result === false)
+        // {
+        //     // @todo This renders a database-level message to the user, fix this
+        //     $errorInfo = $stmt->errorInfo();
+        //     if ($errorInfo)
+        //     {
+        //         $errors[] = $errorInfo[2];
+        //     }
+        // }
     }
 
     return $errors;

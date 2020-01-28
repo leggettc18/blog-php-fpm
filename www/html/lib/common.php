@@ -4,6 +4,19 @@ require_once './vendor/autoload.php';
 require_once './models/post.php';
 require_once './models/comment.php';
 
+
+// Connect to the database, run a query, handle errors
+
+$host = '127.0.0.1';
+$db = 'blog';
+$charset = 'utf8mb4';
+$user = 'blog';
+$pass = 'blog';
+
+Post::createConnection($host, $user, $pass, $db, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'', 3306, $charset));
+
+$posts = Post::allByDateDescending();
+
 # $postModel = new Post($adapter);
 /**
  * Gets the root path of the project
