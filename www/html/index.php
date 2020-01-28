@@ -1,7 +1,8 @@
 <?php
-require_once 'lib/common.php';
 
 session_start();
+
+require_once 'lib/common.php';
 
 // Connect to the database, run a query, handle errors
 
@@ -13,7 +14,7 @@ $pass = 'blog';
 
 Post::createConnection($host, $user, $pass, $db, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'', 3306, $charset));
 
-$posts = Post::all();
+$posts = Post::allByDateDescending();
 
 $notFound = isset($_GET['not-found']);
 ?>
@@ -40,7 +41,7 @@ $notFound = isset($_GET['not-found']);
                     <div class="meta">
                         <?php echo convertSqlDate($post->created_at) ?>
 
-                        (<?php echo Comment::getCommentCount($post->id) ?> comments)
+                        (<?php echo $post->getCommentCount() ?> comments)
                     </div>
                     <p>
                         <?php echo htmlEscape($post->body) ?>

@@ -1,7 +1,8 @@
 <?php
-include 'models/mysqladapter.php';
-include 'models/post.php';
-include 'models/comment.php';
+
+require_once './vendor/autoload.php';
+require_once './models/post.php';
+require_once './models/comment.php';
 
 # $postModel = new Post($adapter);
 /**
