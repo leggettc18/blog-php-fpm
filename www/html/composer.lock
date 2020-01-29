@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/leggettc18/simple-orm.git",
-                "reference": "0e201fdb1b321fef0fa208879fa6ad47bd8237ad"
+                "reference": "3eeb2bb71a2ee7d63f6d251bb549ccad9cd34769"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leggettc18/simple-orm/zipball/0e201fdb1b321fef0fa208879fa6ad47bd8237ad",
-                "reference": "0e201fdb1b321fef0fa208879fa6ad47bd8237ad",
+                "url": "https://api.github.com/repos/leggettc18/simple-orm/zipball/3eeb2bb71a2ee7d63f6d251bb549ccad9cd34769",
+                "reference": "3eeb2bb71a2ee7d63f6d251bb549ccad9cd34769",
                 "shasum": ""
             },
             "require": {
@@ -41,7 +41,7 @@
                 }
             ],
             "description": "Simple ORM for PHP",
-            "time": "2020-01-28T04:40:46+00:00"
+            "time": "2020-01-29T03:04:48+00:00"
         }
     ],
     "packages-dev": [],

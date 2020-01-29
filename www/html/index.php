@@ -29,7 +29,7 @@ $notFound = isset($_GET['not-found']);
                     <div class="meta">
                         <?php echo convertSqlDate($post->created_at) ?>
 
-                        (<?php echo $post->getCommentCount() ?> comments)
+                        (<?php echo Comment::countByPostId($post->id) ?> comments)
                     </div>
                     <p>
                         <?php echo htmlEscape($post->body) ?>
