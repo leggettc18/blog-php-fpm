@@ -12,7 +12,7 @@ if (isset($_GET['post_id']))
 
 // $pdo = getPDO();
 $post = Post::retrieveByPK($postId);
-$commentCount = $post->getCommentCount();
+$commentCount = Comment::countByPostId($post->id);
 
 //If the post does not exist, let's deal with that here
 if (!$post)
