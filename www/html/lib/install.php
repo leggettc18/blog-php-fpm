@@ -53,12 +53,11 @@ function installBlog(PDO $pdo)
 /**
  * Updates the admin user in the database
  * 
- * @param PDO $pdo
  * @param string $username
  * @param integer $length
  * @return array Duple of (password, error)
  */
-function createUser(PDO $pdo, $username, $length = 10)
+function createUser($username, $length = 10)
 {
     // This algorithm creates a random password
     $alphabet = range(ord('A'), ord('z'));
@@ -73,8 +72,22 @@ function createUser(PDO $pdo, $username, $length = 10)
 
     $error = '';
 
+    $hash = password_hash($password, PASSWORD_DEFAULT);
+    if ($hash === false)
+    {
+        $error = 'Password hashing failed';
+    }
+
+    if (!$error) {
+        $user = User::retrieveByUsername($username, User::FETCH_ONE);
+        $user->username = $username;
+        $user->password = $hash;
+        $user->is_enabled = true;
+        $user->save();
+    }
+
     // Insert the credentials into the database
-    $sql = "
+    /* $sql = "
         UPDATE
             user
         SET
@@ -112,7 +125,7 @@ function createUser(PDO $pdo, $username, $length = 10)
         {
             $error = 'Could not run the user password update';
         }
-    }
+    } */
 
     if ($error)
     {

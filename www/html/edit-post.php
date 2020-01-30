@@ -53,7 +53,7 @@ if ($_POST)
         }
         else
         {
-            $userId = getAuthUserId($pdo);
+            $userId = getAuthUserId();
             $postId = addPost(
                 $title,
                 $body,
