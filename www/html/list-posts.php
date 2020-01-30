@@ -19,7 +19,7 @@ if ($_POST)
         $deletePostId = $keys[0];
         if ($deletePostId)
         {
-            deletePost(getPDO(), $deletePostId);
+            deletePost($deletePostId);
             redirectAndExit('list-posts.php');
         }
     }
@@ -27,7 +27,7 @@ if ($_POST)
 
 // Connect to the database, run a query
 $pdo = getPDO();
-$posts=getAllPosts($pdo);
+$posts = Post::all();
 ?>
 <!DOCTYPE html>
 <html>
@@ -58,23 +58,23 @@ $posts=getAllPosts($pdo);
                         <tr>
                             <td>
                                 <a 
-                                    href="view-post.php?post_id=<?php echo $post['id']?>"
-                                ><?php echo htmlEscape($post['title']) ?></a>
+                                    href="view-post.php?post_id=<?php echo $post->id?>"
+                                ><?php echo htmlEscape($post->title) ?></a>
                             </td>
                             <td>
-                                <?php echo convertSqlDate($post['created_at']) ?>
+                                <?php echo convertSqlDate($post->created_at) ?>
                             </td>
                             <td>
-                                <?php echo $post['comment_count'] ?>
+                                <?php echo Comment::countByPostId($post->id) ?>
                             </td>
                             <td>
-                                <a class="button-primary href="edit-post.php?post_id=<?php echo $post['id']?>">Edit</a>
+                                <a class="button-primary" href="edit-post.php?post_id=<?php echo $post->id?>">Edit</a>
                             </td>
                             <td>
                                 <input
                                     class="button-primary"
                                     type="submit"
-                                    name="delete-post[<?php echo $post['id']?>]"
+                                    name="delete-post[<?php echo $post->id?>]"
                                     value="Delete"
                                 />
                             </td>

@@ -14,18 +14,15 @@ if (!isLoggedIn())
 //Empty defaults
 $title = $body = '';
 
-// Init the database and get handle
-$pdo = getPDO();
-
 $postId = null;
 if (isset($_GET['post_id']))
 {
-    $post = getPostRow($pdo, $_GET['post_id']);
+    $post = Post::retrieveByPK($_GET['post_id']);
     if ($post)
     {
-        $postId = $_GET['post_id'];
-        $title = $post['title'];
-        $body = $post['body'];
+        $postId = $post->id;
+        $title = $post->title;
+        $body = $post->body;
     }
 }
 
@@ -52,13 +49,12 @@ if ($_POST)
         // Decide if we are editing or adding
         if ($postId)
         {
-            editPost($pdo, $title, $body, $postId);
+            editPost($post, $title, $body);
         }
         else
         {
             $userId = getAuthUserId($pdo);
             $postId = addPost(
-                $pdo,
                 $title,
                 $body,
                 $userId
