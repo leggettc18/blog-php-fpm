@@ -6,17 +6,11 @@ require_once './models/comment.php';
 require_once './models/user.php';
 
 
-// Connect to the database, run a query, handle errors
+function view($name, $data=[]) {
+    extract($data);
 
-$host = '127.0.0.1';
-$db = 'blog';
-$charset = 'utf8mb4';
-$user = 'blog';
-$pass = 'blog';
-
-Post::createConnection($host, $user, $pass, $db, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'', 3306, $charset));
-
-$posts = Post::allByDateDescending();
+    return require "views/{$name}.view.php";
+}
 
 # $postModel = new Post($adapter);
 /**

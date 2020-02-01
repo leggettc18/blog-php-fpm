@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d949e651fb87366c1dc1e96440f6c837",
+    "content-hash": "432d9fce308e9b7f62fa0a8d00ca5bd5",
     "packages": [
         {
             "name": "leggettc18/simple-orm",
@@ -42,6 +42,42 @@
             ],
             "description": "Simple ORM for PHP",
             "time": "2020-01-30T00:39:53+00:00"
+        },
+        {
+            "name": "leggettc18/simple-router",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leggettc18/simple-router.git",
+                "reference": "b6ede853b966119f668c5392d8926533a45a17f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leggettc18/simple-router/zipball/b6ede853b966119f668c5392d8926533a45a17f6",
+                "reference": "b6ede853b966119f668c5392d8926533a45a17f6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.3.13"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "leggettc18\\SimpleRouter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christopher Leggett",
+                    "email": "chris@leggett.dev"
+                }
+            ],
+            "description": "Simple router written in php",
+            "time": "2020-02-01T03:00:50+00:00"
         }
     ],
     "packages-dev": [],
