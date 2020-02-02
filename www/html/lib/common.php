@@ -1,5 +1,18 @@
 <?php
 
+require_once './vendor/autoload.php';
+require_once './models/post.php';
+require_once './models/comment.php';
+require_once './models/user.php';
+
+
+function view($name, $data=[]) {
+    extract($data);
+
+    return require "views/{$name}.view.php";
+}
+
+# $postModel = new Post($adapter);
 /**
  * Gets the root path of the project
  * 
@@ -25,6 +38,7 @@ function getDSN()
     
     return $dsn;
 }
+
 
 /**
  * Gets the PDO object for database access
@@ -87,7 +101,7 @@ function getSqlDateForNow()
  * 
  * @param PDO $pdo
  * @return array
- */
+ *
 function getAllPosts(PDO $pdo)
 {
     $stmt = $pdo->query(
@@ -106,6 +120,7 @@ function getAllPosts(PDO $pdo)
 
     return $stmt->fetchAll();
 }
+*/
 
 /**
  * Converts unsafe text to safe, paragraphed, HTML
@@ -141,7 +156,7 @@ function redirectAndExit($script)
  * @param integer $postId
  * return array
  */
-function getCommentsForPost(PDO $pdo, $postId)
+/* function getCommentsForPost(PDO $pdo, $postId)
 {
     $sql = "
         SELECT
@@ -157,11 +172,13 @@ function getCommentsForPost(PDO $pdo, $postId)
     );
 
     return $stmt->fetchAll();
-}
+} */
 
-function tryLogin(PDO $pdo, $username, $password)
+function tryLogin($username, $password)
 {
-    $sql = "
+    $user = User::retrieveByUsername($username, User::FETCH_ONE);
+    $success = password_verify($password, $user->password);
+    /* $sql = "
         SELECT
             password
         FROM
@@ -177,7 +194,7 @@ function tryLogin(PDO $pdo, $username, $password)
 
     // Get the hash from this row, and use the third-party hashing library to check it
     $hash = $stmt->fetchColumn();
-    $success = password_verify($password, $hash);
+    $success = password_verify($password, $hash); */
 
     return $success;
 }
@@ -218,15 +235,23 @@ function isLoggedIn()
 
 /**
  * Looks up the user_id for the current auth user
+ * 
+ * Throws exception if user is disabled.
+ * 
+ * @throws Exception
+ * @return int
  */
-function getAuthUserId(PDO $pdo)
+function getAuthUserId()
 {
-    // Reply with null if there is no logged-in suer
+    // Reply with null if there is no logged-in user
     if (!isLoggedIn())
     {
         return null;
     }
 
+    $user = User::retrieveByUsername(getAuthUser(), User::FETCH_ONE);
+
+    /*
     $sql = "
         SELECT
             id
@@ -241,8 +266,12 @@ function getAuthUserId(PDO $pdo)
         array(
             'username' => getAuthUser()
         )
-    );
+    ); */
 
-    return $stmt->fetchColumn();
+    if (!$user->is_enabled) {
+        throw new Exception ('The currently logged in User has been disabled!');
+    }
+
+    return $user->id;
 }
 ?>

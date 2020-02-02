@@ -14,7 +14,7 @@ session_start();
 // If we're already logged in, go back home
 if (isLoggedIn())
 {
-    redirectAndExit('index.php');
+    redirectAndExit('');
 }
 
 // Handle the form posting
@@ -22,15 +22,15 @@ $username = '';
 if ($_POST)
 {
     //Init the database
-    $pdo = getPDO();
+    //$pdo = getPDO();
 
     // We redirect only if the password is correct
     $username = $_POST['username'];
-    $ok = tryLogin($pdo, $username, $_POST['password']);
+    $ok = tryLogin($username, $_POST['password']);
     if ($ok)
     {
         login($username);
-        redirectAndExit('index.php');
+        redirectAndExit('');
     }
 }
 ?>

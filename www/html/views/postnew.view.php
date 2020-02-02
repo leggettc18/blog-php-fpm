@@ -1,78 +1,3 @@
-<?php
-require_once 'lib/common.php';
-require_once 'lib/edit-post.php';
-require_once 'lib/view-post.php';
-
-session_start();
-
-// Don't let non-auth users see this screen
-if (!isLoggedIn())
-{
-    redirectAndExit('index.php');
-}
-
-//Empty defaults
-$title = $body = '';
-
-$postId = null;
-if (isset($_GET['post_id']))
-{
-    $post = Post::retrieveByPK($_GET['post_id']);
-    if ($post)
-    {
-        $postId = $post->id;
-        $title = $post->title;
-        $body = $post->body;
-    }
-}
-
-// Handle the post operation here
-$errors = array();
-
-if ($_POST)
-{
-    // Validate these first
-    $title = $_POST['post-title'];
-    if (!$title)
-    {
-        $errors[] = 'The post must have a title';
-    }
-    $body = $_POST['post-body'];
-    if (!$body)
-    {
-        $errors[] = 'The post must have a body';
-    }
-
-    if (!$errors)
-    {
-        $pdo = getPDO();
-        // Decide if we are editing or adding
-        if ($postId)
-        {
-            editPost($post, $title, $body);
-        }
-        else
-        {
-            $userId = getAuthUserId();
-            $postId = addPost(
-                $title,
-                $body,
-                $userId
-            );
-
-            if ($postId === false)
-            {
-                $errors[] = 'Post operation failed';
-            }
-        }
-    }
-
-    if (!$errors)
-    {
-        redirectAndExit('edit-post.php?post_id=' . $postId);
-    }
-}
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -96,7 +21,7 @@ if ($_POST)
             </div>
         <?php endif ?>
 
-        <form method="post" class="post-form user-form">
+        <form method="post" action="/posts/create" class="post-form user-form">
             <div>
                 <label for="post-title">Title:</label>
                 <input
@@ -121,7 +46,7 @@ if ($_POST)
                     type="submit"
                     value="Save post"
                 />
-                <a href="index.php">Cancel</a>
+                <a href="/">Cancel</a>
             </div>
         </form>
     </body>

@@ -2,16 +2,23 @@
 /**
  * Tries to delete the specified post
  * 
- * We first delete the comments attached
+ * Deletes associated comments first
  * 
- * @param PDO $pdo
  * @param integer $postId
- * @return boolean Returns true on successful deletion
+ * @return void
  * @throws Exception
  */
-function deletePost(PDO $pdo, $postId)
+function deletePost($postId)
 {
-    $sqls = array(
+    // Delete comments first to avoid orphaned comments in the database.
+    $comments = Comment::retrieveByPostId($postId);
+    foreach ($comments as $comment) {
+        $comment->delete();
+    }
+    // Now that comments are deleted, we can delete the post.
+    $post = Post::retrieveByPK($postId);
+    $post->delete();
+    /* $sqls = array(
         // Delete comments first, to remove the foreign key objection
         "DELETE FROM
             comment
@@ -34,14 +41,12 @@ function deletePost(PDO $pdo, $postId)
 
         $result = $stmt->execute(
             array('id' => $postId, )
-        );
+        ); */
 
         // Don't continue if something went wrong
-        if ($result === false)
+        /* if ($result === false)
         {
             break;
-        }
-    }
-
-    return $result !== false;
+        } 
+    } */
 }

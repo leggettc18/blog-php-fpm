@@ -1,34 +1,3 @@
-<?php 
-require_once 'lib/common.php';
-require_once 'lib/list-posts.php';
-
-session_start();
-
-// Don't let non-auth users see this screen
-if (!isLoggedIn())
-{
-    redirectAndExit('index.php');
-}
-
-if ($_POST)
-{
-    $deleteResponse = $_POST['delete-post'];
-    if ($deleteResponse)
-    {
-        $keys = array_keys($deleteResponse);
-        $deletePostId = $keys[0];
-        if ($deletePostId)
-        {
-            deletePost($deletePostId);
-            redirectAndExit('list-posts.php');
-        }
-    }
-}
-
-// Connect to the database, run a query
-$pdo = getPDO();
-$posts = Post::all();
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -58,7 +27,7 @@ $posts = Post::all();
                         <tr>
                             <td>
                                 <a 
-                                    href="view-post.php?post_id=<?php echo $post->id?>"
+                                    href="/posts/show?post_id=<?php echo $post->id?>"
                                 ><?php echo htmlEscape($post->title) ?></a>
                             </td>
                             <td>
@@ -68,15 +37,18 @@ $posts = Post::all();
                                 <?php echo Comment::countByPostId($post->id) ?>
                             </td>
                             <td>
-                                <a class="button-primary" href="edit-post.php?post_id=<?php echo $post->id?>">Edit</a>
+                                <a class="button-primary" href="/posts/edit?post_id=<?php echo $post->id?>">Edit</a>
                             </td>
                             <td>
-                                <input
-                                    class="button-primary"
-                                    type="submit"
-                                    name="delete-post[<?php echo $post->id?>]"
-                                    value="Delete"
-                                />
+                                <form method="post" action="/posts/delete">
+                                    <input type="hidden" name="post-id" value="<?php echo $post->id?>" />
+                                    <input
+                                        class="button-primary"
+                                        type="submit"
+                                        name="delete-post"
+                                        value="Delete"
+                                    />
+                                </form>
                             </td>
                         </tr>
                     <?php endforeach ?>
