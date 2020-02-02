@@ -21,14 +21,15 @@
             </div>
         <?php endif ?>
 
-        <form method="post" action="/posts/create" class="post-form user-form">
+        <form method="post" action="/posts/update" class="post-form user-form">
+            <input id="post-id" name="post-id" type=hidden value="<?php echo $post->id ?>" />
             <div>
                 <label for="post-title">Title:</label>
                 <input
                     id="post-title"
                     name="post-title"
                     type="text"
-                    value="<?php echo htmlEscape($title) ?>"
+                    value="<?php echo htmlEscape($post->title) ?>"
                 />
             </div>
             <div>
@@ -38,7 +39,7 @@
                     name="post-body"
                     rows="12"
                     cols="70"
-                ><?php echo htmlEscape($body) ?></textarea>
+                ><?php echo htmlEscape($post->body) ?></textarea>
             </div>
             <div>
                 <input

@@ -26,12 +26,12 @@
                         <?php echo htmlEscape($post->body) ?>
                     </p>
                     <div class="post-controls">
-                        <a href="view-post.php?post_id=<?php echo $post->id ?>"
+                        <a href="/posts/show?post_id=<?php echo $post->id ?>"
                         >Read more...</a>
                         <?php if (isLoggedIn()): ?>
                             |
                             <a
-                                href="edit-post.php?post_id=<?php echo $post->id ?>"
+                                href="/posts/edit?post_id=<?php echo $post->id ?>"
                             >Edit</a>
                         <?php endif ?>
                     </div>

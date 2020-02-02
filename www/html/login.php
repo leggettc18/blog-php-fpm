@@ -14,7 +14,7 @@ session_start();
 // If we're already logged in, go back home
 if (isLoggedIn())
 {
-    redirectAndExit('index.php');
+    redirectAndExit('');
 }
 
 // Handle the form posting
@@ -30,7 +30,7 @@ if ($_POST)
     if ($ok)
     {
         login($username);
-        redirectAndExit('index.php');
+        redirectAndExit('');
     }
 }
 ?>

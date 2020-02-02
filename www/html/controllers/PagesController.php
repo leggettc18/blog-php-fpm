@@ -8,7 +8,7 @@ class PagesController {
     public function home() {
         $posts = Post::allByDateDescending();
 
-        return view('home', $posts);
+        return view('home', array('posts' => $posts));
     }
 
     public function install() {
@@ -17,5 +17,9 @@ class PagesController {
 
     public function login() {
         return require 'login.php';
+    }
+
+    public function logout() {
+        return require 'logout.php';
     }
 }

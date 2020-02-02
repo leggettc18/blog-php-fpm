@@ -6,23 +6,23 @@
     <ul class="menu-options" id="js-menu">
         <?php if (isLoggedIn()): ?>
         	<li>
-            	<a class="nav-links" href="index.php">Home</a>
+            	<a class="nav-links" href="/">Home</a>
             </li>
             <li>
-            	<a class="nav-links" href="list-posts.php">All posts</a>
+            	<a class="nav-links" href="/posts">All posts</a>
             </li>
             <li>
-            	<a class="nav-links" href="edit-post.php">New post</a>
+            	<a class="nav-links" href="/posts/new">New post</a>
             </li>
             <li>
             	<a class="nav-links" href="#">Hello <?php echo htmlEscape(getAuthUser()) ?>!</a>
             </li>
             <li>
-            	<a class="nav-links" href="logout.php">Log out</a>
+            	<a class="nav-links" href="/logout">Log out</a>
             </li>
         <?php else: ?>
         	<li>
-            	<a class="nav-links" href="login.php">Log in</a>
+            	<a class="nav-links" href="/login">Log in</a>
             </li>
         <?php endif ?>
     </ul>

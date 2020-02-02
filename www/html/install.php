@@ -26,7 +26,7 @@ if ($_POST)
     $_SESSION['try-install'] = true;
 
     // ... and here we redirect from POST to GET
-    redirectAndExit('install.php');
+    redirectAndExit('/install');
 }
 
 // Let's see if we've just installed
@@ -75,8 +75,8 @@ if (isset($_SESSION['try-install']))
                     (copy it to clipboard if you wish).
                 </div>
                 <p>
-                    <a href="index.php">View the blog</a>,
-                    or <a href="install.php">install again</a>.
+                    <a href="/">View the blog</a>,
+                    or <a href="/install">install again</a>.
                 </p>
             <?php endif ?>
         <?php else: ?>

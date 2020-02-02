@@ -9,8 +9,9 @@ class PostController {
 
     public function show() {
         $post = Post::retrieveByPK($_GET['post_id']);
+        $comments = Comment::retrieveByPostId($_GET['post_id']);
 
-        return view('postshow', array('post' => $post));
+        return view('postshow', array('post' => $post, 'comments' => $comments));
     }
 
     public function new() {
@@ -24,6 +25,31 @@ class PostController {
         $post->user_id = getAuthUserId();
         $post->save();
 
-        header("Location: /");
+        header("Location: /posts/show?post_id=$post->id");
+    }
+
+    public function edit() {
+        $post = Post::retrieveByPK($_GET['post_id']);
+        return view('postedit', array('post' => $post));
+    }
+
+    public function update() {
+        $post = Post::retrieveByPK($_POST['post-id']);
+        $post->title = $_POST['post-title'];
+        $post->body = $_POST['post-body'];
+        $post->save();
+
+        header("Location: /posts/show?post_id=$post->id");
+    }
+
+    public function delete() {
+        $post = Post::retrieveByPK($_POST['post-id']);
+        $comments = Comment::retrieveByPostId($_POST['post-id']);
+        foreach ($comments as $comment) {
+            $comment->delete();
+        }
+        $post->delete();
+
+        header("Location: /posts");
     }
 }

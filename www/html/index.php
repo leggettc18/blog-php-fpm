@@ -3,6 +3,7 @@
 require 'vendor/autoload.php';
 require 'controllers/PagesController.php';
 require 'controllers/PostController.php';
+require 'controllers/CommentController.php';
 
 require_once 'core/bootstrap.php';
 

@@ -5,14 +5,15 @@
  * @var $commentCount integer
  */
 ?>
-<form
-    action="view-post.php?action=delete-comment&amp;post_id=<?php echo $postId?>&amp;"
-    method="post"
-    class="comment-list"
->
-    <h3><?php echo $commentCount ?> comments</h3>
+<h3><?php echo count($comments) ?> comments</h3>
 
-    <?php foreach (Comment::retrieveByPostId($postId) as $comment): ?>
+<?php foreach ($comments as $comment): ?>
+    <form
+        action="/comments/delete"
+        method="post"
+        class="comment-list"
+    >
+
         <div class="comment">
             <div class="comment-meta">
                 Comment from
@@ -20,9 +21,10 @@
                 on
                 <?php echo convertSqlDate($comment->created_at) ?>
                 <?php if (isLoggedIn()): ?>
+                    <input type="hidden" id="comment-id" name="comment-id" value="<?php echo $comment->id ?>" />
                     <input
                         type="submit"
-                        name="delete-comment[<?php echo $comment->id ?>]"
+                        name="delete-comment"
                         value="Delete"
                     />
                 <?php endif ?>
@@ -32,5 +34,5 @@
                 <?php echo convertNewlinesToParagraphs($comment->text) ?>
             </div>
         </div>
-    <?php endforeach ?>
-</form>
+    </form>
+<?php endforeach ?>
