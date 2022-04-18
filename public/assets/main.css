@@ -1,0 +1,296 @@
+/* Success/error message boxes */
+.box {
+	border: 1px dotted #7B8571;
+	border-radius: 5px;
+	padding: 4px;
+}
+.error {
+	background-color: #ff6666;
+}
+.success {
+	background-color: #88ff88;
+}
+
+.box ul {
+	margin: 4px;
+	padding-left: 14px;
+}
+
+.box ul li {
+	margin-bottom: 2px;
+}
+
+.install-password {
+	font-size: 1.2em;
+}
+
+nav ul {
+	padding: 0;
+}
+
+a {
+	color: #2F726D;
+}
+
+.top-menu {
+	background: #2f726d;
+	color: #f5f0f3;
+	height: 15px;
+	padding: 10px;
+	margin-bottom: 4px;
+	grid-area: header;
+	transition: 0.5s ease-out;
+	transition-delay: 0.3s;
+}
+
+.active-top {
+	height: 200px;
+	transition: 0.5s ease-out;
+}
+
+.menu-options {
+	list-style-type: none;
+	height: 0;
+	opacity: 0;
+	transition: opacity 0.3s ease-out;
+}
+
+.active {
+	opacity: 1;
+	transition: opacity 0.3s ease-in;
+	transition-delay: 0.3s
+}
+
+.menu-options li {
+	text-align: center;
+	padding: 5px;
+	border: 1px;
+	border-style: solid;
+	border-color: #2f726d;
+	background: #255A56;
+}
+
+.logo {
+	display: inline-block;
+}
+
+.navbar-toggle {
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	cursor: pointer;
+	color: #f5f0f3;
+	font-size: 25px;
+}
+
+.nav-links {
+	color: #f5f0f3;
+	text-decoration: none;
+}
+
+.nav-links:hover {
+	text-decoration: underline;
+}
+
+@media screen and (min-width: 768px) {
+	.top-menu {
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: 10px;
+		height: 15px;
+		align-items: center;
+	}
+	
+	.menu-options {
+		display: flex;
+		margin-right: 30px;
+		flex-direction: row;
+		justify-content: flex-end;
+		height: 1.5em;
+		opacity: 1;
+	}
+	
+	.menu-options li {
+		margin: 0;
+		border-style: none;
+		background: #2f726d;
+	}
+	
+	.nav-links {
+		margin-left: 20px;
+	}
+	
+	.navbar-toggle {
+		display: none;
+	}
+}
+
+h1, h2, h3 {
+	margin-top: 0;
+	margin-bottom: 8px;
+}
+
+#title {
+	grid-area: title;
+	text-align: center;
+}
+
+#title a {
+	text-decoration: none;
+	color: #1d1e26;
+}
+
+#title a:hover{
+	text-decoration: underline;
+}
+
+#summary {
+	grid-area: summary;
+	text-align: justify;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+body {
+	font-family: sans-serif;
+	background-color: #F5F0F3;
+	color: #1D1E26;
+	animation: fadein 1.5s;
+}
+
+@keyframes fadein {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+#main-grid {
+	display: grid;
+	grid-template-areas:
+		"header		header		header"
+		"title 		post		post"
+		"summary 	post 		post"
+		".			post		post";
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-auto-rows: auto;
+	grid-gap: 20px;
+	gap: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+	#main-grid {
+		display: grid;
+		grid-template-areas:
+			"header		header		header"
+			"title 		title		title"
+			"summary 	summary 	summary"
+			"post		post		post";
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-auto-rows: auto;
+		grid-gap: 20px;
+		gap: 20px;
+	}
+}
+
+.post-synopsis {
+	padding-bottom: 8px;
+	border-bottom: 1px dotted #7B8571;
+	margin-bottom: 20px;
+}
+
+.post-synopsis h2, .post h2 {
+	color: #1D1E26;
+}
+
+.post .date, .post-synopsis .meta {
+	color: #F5F0F3;
+	background-color: #62B3C0;
+	border-radius: 7px;
+	padding: 2px;
+	display: inline;
+	font-size: 0.75em;
+}
+
+.button-primary {
+	color: #F5F0F3;
+	background-color: #62B3C0;
+	border: none;
+	padding: 0.5em;
+	border-radius: 1em;
+	text-decoration: none;
+	font-size: 1em;
+}
+
+.button-primary:hover {
+	background-color: #559aa5;
+}
+
+.button-secondary {
+	color: #f5f0f3;
+	background-color: #1d1e26;
+	border: none;
+	padding: 0.5em;
+	border-radius: 1em;
+	text-decoration: none;
+}
+
+.comment .comment-meta {
+	font-size: 0.85em;
+	color: #7B8571;
+	border-top: 1px dotted #7B8571;
+	padding-top: 8px;
+}
+
+.comment .comment-meta input {
+	float: right;
+}
+
+.comment-body p {
+	margin: 8px 4px;
+}
+
+.comment-list {
+	border-bottom: 1px dotted #7B8571;
+	margin-bottom: 12px;
+	max-width: 900px;
+}
+
+.comment-margin {
+	margin-bottom: 8px;
+}
+
+.user-form input,
+.user-form textarea {
+	margin: 4px;
+}
+
+.user-form label {
+	font-size: 0.95em;
+	margin: 6px;
+	width: 7em;
+	color: #1d1e26;
+	float: left;
+	text-align: right;
+
+	/* Some browsers make labels too tall, and as a result they incorrectly
+	stack horizontally. Let's reset each to the left-hand side to be sure. */
+	clear: left;
+}
+
+.post-list {
+	grid-area: post;
+	margin-left: 20px;
+}
+
+#post-list {
+	border-collapse: collapse;
+	border: 1px solid silver;
+}
+
+#post-list td, #post-list th {
+	padding: 8px;
+	text-align: left;
+}
+
+#post-list tbody tr:nth-child(odd) {
+	background-color: #eceaec;
+}

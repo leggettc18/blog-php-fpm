@@ -1,15 +1,16 @@
 <?php
 
-require_once './vendor/autoload.php';
-require_once './models/post.php';
-require_once './models/comment.php';
-require_once './models/user.php';
+require_once '../vendor/autoload.php';
+require_once '../models/post.php';
+require_once '../models/comment.php';
+require_once '../models/user.php';
 
 
-function view($name, $data=[]) {
+function view($name, $data = [])
+{
     extract($data);
 
-    return require "views/{$name}.view.php";
+    return require "../views/{$name}.view.php";
 }
 
 # $postModel = new Post($adapter);
@@ -18,24 +19,24 @@ function view($name, $data=[]) {
  * 
  * @return string
  */
- function getRootPath()
- {
+function getRootPath()
+{
     return realpath(__DIR__ . '/..');
- }
+}
 
- /**
-  * Gets the DSN for the MySQL Connection
-  *
-  * @return string
-  */
+/**
+ * Gets the DSN for the MySQL Connection
+ *
+ * @return string
+ */
 function getDSN()
 {
-    $host = '127.0.0.1';
+    $host = 'mariadb';
     $db = 'blog';
     $charset = 'utf8mb4';
 
     $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-    
+
     return $dsn;
 }
 
@@ -49,7 +50,7 @@ function getPDO()
 {
     $dsn = getDSN();
     $user = 'blog';
-    $pass = 'blog';
+    $pass = 'blog-password';
 
     $options = [
         PDO::ATTR_ERRMODE               => PDO::ERRMODE_EXCEPTION,
@@ -87,7 +88,7 @@ function convertSqlDate($sqlDate)
 {
     /* @var $date DateTime */
     $date = DateTime::createFromFormat('Y-m-d H:i:s', $sqlDate);
-    
+
     return $date->format('d M Y, H:i');
 }
 
@@ -120,7 +121,7 @@ function getAllPosts(PDO $pdo)
 
     return $stmt->fetchAll();
 }
-*/
+ */
 
 /**
  * Converts unsafe text to safe, paragraphed, HTML
@@ -244,8 +245,7 @@ function isLoggedIn()
 function getAuthUserId()
 {
     // Reply with null if there is no logged-in user
-    if (!isLoggedIn())
-    {
+    if (!isLoggedIn()) {
         return null;
     }
 
@@ -269,9 +269,8 @@ function getAuthUserId()
     ); */
 
     if (!$user->is_enabled) {
-        throw new Exception ('The currently logged in User has been disabled!');
+        throw new Exception('The currently logged in User has been disabled!');
     }
 
     return $user->id;
 }
-?>
