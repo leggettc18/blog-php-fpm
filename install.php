@@ -1,6 +1,6 @@
 <?php
-require_once 'lib/common.php';
-require_once 'lib/install.php';
+require_once '../lib/common.php';
+require_once '../lib/install.php';
 
 // We store stuff in the session, to survive the redirect to self
 session_start();
@@ -51,7 +51,7 @@ if (isset($_SESSION['try-install']))
 <html>
     <head>
         <title>Blog installer</title>
-        <?php require 'templates/head.php' ?>
+        <?php require '../templates/head.php' ?>
     </head>
     <body>
         <?php if ($attempted): ?>

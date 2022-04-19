@@ -6,6 +6,11 @@ require '../lib/common.php';
 class PagesController
 {
 
+    public function xdebug()
+    {
+        return require '../xdebug.php';
+    }
+
     public function home()
     {
         $posts = Post::allByDateDescending();

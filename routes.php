@@ -16,3 +16,4 @@ $router->post('posts/update', 'PostController@update');
 $router->post('posts/delete', 'PostController@delete');
 $router->post('comments/create', 'CommentController@create');
 $router->post('comments/delete', 'CommentController@delete');
+$router->get('xdebug', 'PagesController@xdebug');

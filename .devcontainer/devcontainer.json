@@ -24,6 +24,7 @@
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "mikestead.dotenv",
+        "xdebug.php-debug"
     ],
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],
