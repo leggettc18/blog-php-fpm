@@ -1,5 +1,5 @@
 <?php
-require_once '../lib/common.php';
+use Blog\Lib\Common;
 
 // We need to test for a minimum version of PHP, because earlier versions have bugs that affect security
 if (version_compare(PHP_VERSION, '5.3.7') < 0) {
@@ -11,8 +11,8 @@ if (version_compare(PHP_VERSION, '5.3.7') < 0) {
 session_start();
 
 // If we're already logged in, go back home
-if (isLoggedIn()) {
-    redirectAndExit('');
+if (Common::isLoggedIn()) {
+    Common::redirectAndExit('');
 }
 
 // Handle the form posting
@@ -23,10 +23,10 @@ if ($_POST) {
 
     // We redirect only if the password is correct
     $username = $_POST['username'];
-    $ok = tryLogin($username, $_POST['password']);
+    $ok = Common::tryLogin($username, $_POST['password']);
     if ($ok) {
-        login($username);
-        redirectAndExit('');
+        Common::login($username);
+        Common::redirectAndExit('');
     }
 }
 ?>
@@ -58,7 +58,7 @@ if ($_POST) {
             <label for="username">
                 Username:
             </label>
-            <input type="text" id="username" name="username" value="<?php echo htmlEscape($username) ?>" />
+            <input type="text" id="username" name="username" value="<?php echo Common::htmlEscape($username) ?>" />
         </div>
         <div>
             <label for="password">

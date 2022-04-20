@@ -3,36 +3,35 @@
 namespace Blog\Controllers;
 
 use Blog\Models\Post;
-
-require '../src/lib/common.php';
+use Blog\Lib\Common;
 
 class PagesController
 {
 
     public function xdebug()
     {
-        return require '../xdebug.php';
+        return require '../src/xdebug.php';
     }
 
     public function home()
     {
         $posts = Post::allByDateDescending();
 
-        return view('home', array('posts' => $posts));
+        return Common::view('home', array('posts' => $posts));
     }
 
     public function install()
     {
-        return require '../install.php';
+        return require '../src/install.php';
     }
 
     public function login()
     {
-        return require '../login.php';
+        return require '../src/login.php';
     }
 
     public function logout()
     {
-        return require '../logout.php';
+        return require '../src/logout.php';
     }
 }

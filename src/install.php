@@ -1,20 +1,19 @@
 <?php
-require_once '../lib/common.php';
-require_once '../lib/install.php';
-
+use Blog\Lib\Common;
+use Blog\Lib\Install;
 // We store stuff in the session, to survive the redirect to self
 session_start();
 
 // Only run the installer when we're responding to the form
 if ($_POST) {
     //Here's the install
-    $pdo = getPDO();
-    list($rowCounts, $error) = installBlog($pdo);
+    $pdo = Common::getPDO();
+    list($rowCounts, $error) = Install::installBlog($pdo);
 
     $password = '';
     if (!$error) {
         $username = 'admin';
-        list($password, $error) = createUser($username);
+        list($password, $error) = Install::createUser($username);
     }
 
     $_SESSION['count'] = $rowCounts;
@@ -24,7 +23,7 @@ if ($_POST) {
     $_SESSION['try-install'] = true;
 
     // ... and here we redirect from POST to GET
-    redirectAndExit('install');
+    Common::redirectAndExit('install');
 }
 
 // Let's see if we've just installed
@@ -49,7 +48,7 @@ if (isset($_SESSION['try-install'])) {
 
 <head>
     <title>Blog installer</title>
-    <?php require '../templates/head.php' ?>
+    <?php require '../src/templates/head.php' ?>
 </head>
 
 <body>
@@ -71,8 +70,8 @@ if (isset($_SESSION['try-install'])) {
                 <?php endforeach ?>
                 <?php // Report the new password 
                 ?>
-                The new '<?php echo htmlEscape($username) ?>' password is
-                <span class="install-password"><?php echo htmlEscape($password) ?></span>
+                The new '<?php echo Common::htmlEscape($username) ?>' password is
+                <span class="install-password"><?php echo Common::htmlEscape($password) ?></span>
                 (copy it to clipboard if you wish).
             </div>
             <p>

@@ -2,10 +2,10 @@
 <html>
     <head>
         <title>A blog application | New post</title>
-        <?php require 'templates/head.php' ?>
+        <?php require '../src/templates/head.php' ?>
     </head>
     <body>
-        <?php require 'templates/top-menu.php' ?>
+        <?php require '../src/templates/top-menu.php' ?>
         <?php if (isset($_GET['post_id'])): ?>
             <h1>Edit post</h1>
         <?php else: ?>

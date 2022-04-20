@@ -1,4 +1,7 @@
 <?php
+namespace Blog\Controllers;
+
+use Blog\Models\Comment;
 
 class CommentController {
     public function create() {

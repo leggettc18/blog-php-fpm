@@ -6,11 +6,11 @@
         A blog application |
         <?php echo htmlEscape($post->title) ?>
     </title>
-    <?php require '../templates/head.php' ?>
+    <?php require '../src/templates/head.php' ?>
 </head>
 
 <body>
-    <?php require '../templates/title.php' ?>
+    <?php require '../src/templates/title.php' ?>
     <div class="post">
         <h2>
             <?php echo htmlEscape($post->title) ?>
@@ -20,10 +20,10 @@
         </div>
         <?php echo convertNewlinesToParagraphs($post->body) ?>
     </div>
-    <?php require '../templates/list-comments.php' ?>
+    <?php require '../src/templates/list-comments.php' ?>
     <?php // We use $commentData in this HTML fragment 
     ?>
-    <?php require '../templates/comment-form.php' ?>
+    <?php require '../src/templates/comment-form.php' ?>
 </body>
 
 </html>

@@ -2,10 +2,10 @@
 <html>
     <head>
         <title>A blog application | Blog posts</title>
-        <?php require 'templates/head.php' ?>
+        <?php require '../src/templates/head.php' ?>
     </head>
     <body>
-        <?php require 'templates/top-menu.php' ?>
+        <?php require '../src/templates/top-menu.php' ?>
 
         <h1>Post list</h1>
 
@@ -34,7 +34,7 @@
                                 <?php echo convertSqlDate($post->created_at) ?>
                             </td>
                             <td>
-                                <?php echo Comment::countByPostId($post->id) ?>
+                                <?php echo \Blog\Models\Comment::countByPostId($post->id) ?>
                             </td>
                             <td>
                                 <a class="button-primary" href="/posts/edit?post_id=<?php echo $post->id?>">Edit</a>
