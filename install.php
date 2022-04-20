@@ -6,15 +6,13 @@ require_once '../lib/install.php';
 session_start();
 
 // Only run the installer when we're responding to the form
-if ($_POST)
-{
+if ($_POST) {
     //Here's the install
     $pdo = getPDO();
     list($rowCounts, $error) = installBlog($pdo);
 
     $password = '';
-    if (!$error)
-    {
+    if (!$error) {
         $username = 'admin';
         list($password, $error) = createUser($username);
     }
@@ -26,13 +24,12 @@ if ($_POST)
     $_SESSION['try-install'] = true;
 
     // ... and here we redirect from POST to GET
-    redirectAndExit('/install');
+    redirectAndExit('install');
 }
 
 // Let's see if we've just installed
 $attempted = false;
-if (isset($_SESSION['try-install']))
-{
+if (isset($_SESSION['try-install'])) {
     $attempted = true;
     $count = $_SESSION['count'];
     $error = $_SESSION['error'];
@@ -49,46 +46,46 @@ if (isset($_SESSION['try-install']))
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Blog installer</title>
-        <?php require '../templates/head.php' ?>
-    </head>
-    <body>
-        <?php if ($attempted): ?>
-            <?php if ($error): ?>
-                <div class="error box">
-                    <?php echo $error ?>
-                </div>
-            <?php else: ?>
-                <div class="success box">
-                    The database and demo data was created OK.
-                    <?php // Report the counts for each table ?>
-                    <?php foreach (array('post', 'comment') as $tableName): ?>
-                        <?php if ($count): ?>
-                            <?php echo $count[$tableName] ?> new
-                            <?php echo $tableName ?>s were created.
-                        <?php endif ?>
-                    <?php endforeach ?>
-                    <?php // Report the new password ?>
-                    The new '<?php echo htmlEscape($username) ?>' password is
-                    <span class="install-password"><?php echo htmlEscape($password) ?></span>
-                    (copy it to clipboard if you wish).
-                </div>
-                <p>
-                    <a href="/">View the blog</a>,
-                    or <a href="/install">install again</a>.
-                </p>
-            <?php endif ?>
-        <?php else: ?>
-            <p>Click the install button to reset the database.</p>
-            <form method="post">
-                <input
-                    class="button-primary"
-                    name="install"
-                    type="submit"
-                    value="Install"
-                />
-            </form>
+
+<head>
+    <title>Blog installer</title>
+    <?php require '../templates/head.php' ?>
+</head>
+
+<body>
+    <?php if ($attempted) : ?>
+        <?php if ($error) : ?>
+            <div class="error box">
+                <?php echo $error ?>
+            </div>
+        <?php else : ?>
+            <div class="success box">
+                The database and demo data was created OK.
+                <?php // Report the counts for each table 
+                ?>
+                <?php foreach (array('post', 'comment') as $tableName) : ?>
+                    <?php if ($count) : ?>
+                        <?php echo $count[$tableName] ?> new
+                        <?php echo $tableName ?>s were created.
+                    <?php endif ?>
+                <?php endforeach ?>
+                <?php // Report the new password 
+                ?>
+                The new '<?php echo htmlEscape($username) ?>' password is
+                <span class="install-password"><?php echo htmlEscape($password) ?></span>
+                (copy it to clipboard if you wish).
+            </div>
+            <p>
+                <a href="/">View the blog</a>,
+                or <a href="/install">install again</a>.
+            </p>
         <?php endif ?>
-    </body>
+    <?php else : ?>
+        <p>Click the install button to reset the database.</p>
+        <form method="post">
+            <input class="button-primary" name="install" type="submit" value="Install" />
+        </form>
+    <?php endif ?>
+</body>
+
 </html>

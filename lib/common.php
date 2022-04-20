@@ -140,7 +140,7 @@ function redirectAndExit($script)
 {
     // Get the domain-relative URL (e.g. /blog/whatever.php or /whatever.php) and work
     // out the folder (e.g. /blog/ or /).
-    $relativeUrl = $_SERVER['PHP_SELF'];
+    $relativeUrl = $_SERVER['REQUEST_URI'];
     $urlFolder = substr($relativeUrl, 0, strrpos($relativeUrl, '/') + 1);
 
     // Redirect to the full URL (http://myhost/blog/script.php)
