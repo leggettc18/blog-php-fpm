@@ -1,7 +1,13 @@
 {
     "require": {
-        "leggettc18/simple-orm": ">=1.0",
-        "leggettc18/simple-router": ">=1.0"
+        "leggettc18/simple-orm": "^1.0",
+        "leggettc18/simple-router": "^1.0",
+        "pecee/simple-router": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Blog\\":"src"
+        }
     },
     "minimum-stability": "dev"
 }

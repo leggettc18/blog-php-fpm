@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "432d9fce308e9b7f62fa0a8d00ca5bd5",
+    "content-hash": "c2dc9ad8e1cb0023889b2e33620cb4ff",
     "packages": [
         {
             "name": "leggettc18/simple-orm",
-            "version": "dev-master",
+            "version": "v1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leggettc18/simple-orm.git",
@@ -41,11 +41,15 @@
                 }
             ],
             "description": "Simple ORM for PHP",
+            "support": {
+                "issues": "https://github.com/leggettc18/simple-orm/issues",
+                "source": "https://github.com/leggettc18/simple-orm/tree/v1.0"
+            },
             "time": "2020-01-30T00:39:53+00:00"
         },
         {
             "name": "leggettc18/simple-router",
-            "version": "dev-master",
+            "version": "v1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leggettc18/simple-router.git",
@@ -77,15 +81,86 @@
                 }
             ],
             "description": "Simple router written in php",
+            "support": {
+                "issues": "https://github.com/leggettc18/simple-router/issues",
+                "source": "https://github.com/leggettc18/simple-router/tree/master"
+            },
             "time": "2020-02-01T16:31:21+00:00"
+        },
+        {
+            "name": "pecee/simple-router",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/skipperbent/simple-php-router.git",
+                "reference": "749f252ffba98955311235cc2befc8ab742a151c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/skipperbent/simple-php-router/zipball/749f252ffba98955311235cc2befc8ab742a151c",
+                "reference": "749f252ffba98955311235cc2befc8ab742a151c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1",
+                "phpstan/phpstan": "^0",
+                "phpstan/phpstan-deprecation-rules": "^0",
+                "phpstan/phpstan-phpunit": "^0",
+                "phpstan/phpstan-strict-rules": "^0",
+                "phpunit/phpunit": "^7"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pecee\\": "src/Pecee/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Simon Sessingø",
+                    "email": "simon.sessingoe@gmail.com"
+                }
+            ],
+            "description": "Simple, fast PHP router that is easy to get integrated and in almost any project. Heavily inspired by the Laravel router.",
+            "keywords": [
+                "framework",
+                "input-handler",
+                "laravel",
+                "pecee",
+                "php",
+                "request-handler",
+                "route",
+                "router",
+                "routing",
+                "routing-engine",
+                "simple-php-router",
+                "url-handling"
+            ],
+            "support": {
+                "issues": "https://github.com/skipperbent/simple-php-router/issues",
+                "source": "https://github.com/skipperbent/simple-php-router/issues"
+            },
+            "time": "2021-07-17T23:45:46+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "pecee/simple-router": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }

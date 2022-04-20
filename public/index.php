@@ -1,15 +1,16 @@
 <?php
 
+use Pecee\SimpleRouter\SimpleRouter;
+use Blog\Controllers\PagesController;
+
 require '../vendor/autoload.php';
-require '../controllers/PagesController.php';
-require '../controllers/PostController.php';
-require '../controllers/CommentController.php';
+require '../src/Controllers/PagesController.php';
+require '../src/Controllers/PostController.php';
+require '../src/Controllers/CommentController.php';
 
-require_once '../core/bootstrap.php';
-
-use leggettc18\SimpleRouter\{Router, Request};
+require_once '../src/core/bootstrap.php';
 
 session_start();
 
-Router::load('../routes.php')
-    ->direct(Request::uri(), Request::method());
+SimpleRouter::get('/', [PagesController::class, 'home']);
+SimpleRouter::start();

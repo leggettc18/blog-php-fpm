@@ -1,8 +1,9 @@
 <?php
 
+namespace Blog\Models;
 use leggettc18\SimpleORM\DataModel;
 
-class Post extends leggettc18\SimpleORM\DataModel {
+class Post extends DataModel {
 
 	protected static $createdAtColumn = 'created_at';
 	protected static $updatedAtColumn = 'updated_at';

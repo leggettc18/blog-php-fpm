@@ -3,11 +3,11 @@
 
 <head>
     <title>A blog application</title>
-    <?php require '../templates/head.php' ?>
+    <?php require '../src/templates/head.php' ?>
 </head>
 
 <body id="main-grid">
-    <?php require '../templates/title.php' ?>
+    <?php require '../src/templates/title.php' ?>
     <?php if ($notFound) : ?>
         <div class="error box">
             Error: cannot find the requested blog post

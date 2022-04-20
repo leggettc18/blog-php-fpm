@@ -1,0 +1,85 @@
+{
+    "packages": [
+        {
+            "name": "leggettc18/simple-orm",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leggettc18/simple-orm.git",
+                "reference": "0beb8d81dea64c15645221693262c7f64b915bac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leggettc18/simple-orm/zipball/0beb8d81dea64c15645221693262c7f64b915bac",
+                "reference": "0beb8d81dea64c15645221693262c7f64b915bac",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.3.13"
+            },
+            "time": "2020-01-30T00:39:53+00:00",
+            "type": "package",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "leggettc18\\SimpleORM\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "mit"
+            ],
+            "authors": [
+                {
+                    "name": "Christopher Leggett",
+                    "email": "chris@leggett.dev",
+                    "homepage": "https://leggett.dev"
+                }
+            ],
+            "description": "Simple ORM for PHP",
+            "install-path": "../leggettc18/simple-orm"
+        },
+        {
+            "name": "leggettc18/simple-router",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leggettc18/simple-router.git",
+                "reference": "43e7ca1889d931ee02c7fe9ae526c51bc530b246"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leggettc18/simple-router/zipball/43e7ca1889d931ee02c7fe9ae526c51bc530b246",
+                "reference": "43e7ca1889d931ee02c7fe9ae526c51bc530b246",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.3.13"
+            },
+            "time": "2020-02-01T16:31:21+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "leggettc18\\SimpleRouter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christopher Leggett",
+                    "email": "chris@leggett.dev"
+                }
+            ],
+            "description": "Simple router written in php",
+            "install-path": "../leggettc18/simple-router"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

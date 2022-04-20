@@ -1,0 +1,21 @@
+{
+    "name": "leggettc18/simple-router",
+    "description": "Simple router written in php",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christopher Leggett",
+            "email": "chris@leggett.dev"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.3.13"
+    },
+    "autoload": {
+        "psr-4": {
+            "leggettc18\\SimpleRouter\\" : "src/"
+        }
+    }
+}

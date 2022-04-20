@@ -1,6 +1,6 @@
 <?php
 
-require_once '../models/post.php';
+use Blog\Models\Post;
 
 $host = 'mariadb';
 $db = 'blog';

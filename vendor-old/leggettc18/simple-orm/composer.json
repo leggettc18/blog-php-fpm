@@ -1,0 +1,22 @@
+{
+    "name": "leggettc18/simple-orm",
+    "description": "Simple ORM for PHP",
+    "type": "package",
+    "require": {
+        "php": ">=7.3.13"
+    },
+    "license": "mit",
+    "authors": [
+        {
+            "name": "Christopher Leggett",
+            "email": "chris@leggett.dev",
+            "homepage": "https://leggett.dev"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "leggettc18\\SimpleORM\\" : "src/"
+        }
+    }
+}

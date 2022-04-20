@@ -1,16 +1,18 @@
 <?php
 
 require_once '../vendor/autoload.php';
-require_once '../models/post.php';
-require_once '../models/comment.php';
-require_once '../models/user.php';
+
+use Blog\Models\Post;
+
+require_once '../src/Models/comment.php';
+require_once '../src/Models/user.php';
 
 
 function view($name, $data = [])
 {
     extract($data);
 
-    return require "../views/{$name}.view.php";
+    return require "../src/views/{$name}.view.php";
 }
 
 # $postModel = new Post($adapter);

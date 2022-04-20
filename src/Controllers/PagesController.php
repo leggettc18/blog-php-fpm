@@ -1,7 +1,10 @@
 <?php
 
-require '../models/post.php';
-require '../lib/common.php';
+namespace Blog\Controllers;
+
+use Blog\Models\Post;
+
+require '../src/lib/common.php';
 
 class PagesController
 {
