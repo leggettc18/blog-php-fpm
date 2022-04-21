@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2dc9ad8e1cb0023889b2e33620cb4ff",
+    "content-hash": "ee07fb636a3a4dc8fc330f93c2afd83e",
     "packages": [
         {
             "name": "leggettc18/simple-orm",
@@ -89,16 +89,16 @@
         },
         {
             "name": "pecee/simple-router",
-            "version": "dev-master",
+            "version": "4.3.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/skipperbent/simple-php-router.git",
-                "reference": "749f252ffba98955311235cc2befc8ab742a151c"
+                "reference": "032a2ae7e0e2d876599758f85b61bc965a63ea7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/skipperbent/simple-php-router/zipball/749f252ffba98955311235cc2befc8ab742a151c",
-                "reference": "749f252ffba98955311235cc2befc8ab742a151c",
+                "url": "https://api.github.com/repos/skipperbent/simple-php-router/zipball/032a2ae7e0e2d876599758f85b61bc965a63ea7c",
+                "reference": "032a2ae7e0e2d876599758f85b61bc965a63ea7c",
                 "shasum": ""
             },
             "require": {
@@ -113,7 +113,6 @@
                 "phpstan/phpstan-strict-rules": "^0",
                 "phpunit/phpunit": "^7"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -149,15 +148,13 @@
                 "issues": "https://github.com/skipperbent/simple-php-router/issues",
                 "source": "https://github.com/skipperbent/simple-php-router/issues"
             },
-            "time": "2021-07-17T23:45:46+00:00"
+            "time": "2021-07-17T23:45:36+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "pecee/simple-router": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

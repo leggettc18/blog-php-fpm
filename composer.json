@@ -2,7 +2,7 @@
     "require": {
         "leggettc18/simple-orm": "^1.0",
         "leggettc18/simple-router": "^1.0",
-        "pecee/simple-router": "dev-master"
+        "pecee/simple-router": "^4.3.7"
     },
     "autoload": {
         "psr-4": {

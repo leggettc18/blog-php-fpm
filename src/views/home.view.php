@@ -8,11 +8,6 @@
 
 <body id="main-grid">
     <?php require '../src/templates/title.php' ?>
-    <?php if ($notFound) { ?>
-        <div class="error box">
-            Error: cannot find the requested blog post
-        </div>
-    <?php } ?>
     <div class="post-list">
         <?php foreach ($posts as $post) : ?>
             <div class="post-synopsis">

@@ -28,10 +28,10 @@
                             <td>
                                 <a 
                                     href="/posts/show?post_id=<?php echo $post->id?>"
-                                ><?php echo htmlEscape($post->title) ?></a>
+                                ><?php echo \Blog\Lib\Common::htmlEscape($post->title) ?></a>
                             </td>
                             <td>
-                                <?php echo convertSqlDate($post->created_at) ?>
+                                <?php echo \Blog\Lib\Common::convertSqlDate($post->created_at) ?>
                             </td>
                             <td>
                                 <?php echo \Blog\Models\Comment::countByPostId($post->id) ?>
